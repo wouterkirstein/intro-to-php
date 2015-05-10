@@ -1,9 +1,70 @@
-<?php
 
-	/**
-	 *  An array of 100 people
-	 */
-	$people = array(
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Homework // Week 1</title>
+
+		<!--
+			We're using Bootstrap to make styling stuff super easy.
+			Go read up here: http://getbootstrap.com/css/
+		-->
+		<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="mystyle.css">
+
+	</head>
+	<body>
+
+		<div class="container">
+
+			<h1>A List of People</h1>
+			<hr>
+
+			<?php
+
+function build_table($array){
+
+    // start table
+
+    $html = '<table>';
+
+    // header row
+
+    $html .= '<tr>';
+
+    foreach($array[0] as $key=>$value){
+
+            $html .= '<th>' . $key . '</th>';
+
+        }
+
+    $html .= '</tr>';
+
+    // data rows
+
+    foreach( $array as $key=>$value){
+
+        $html .= '<tr>';
+
+        foreach($value as $key2=>$value2){
+
+            $html .= '<td>' . $value2 . '</td>';
+
+        }
+
+        $html .= '</tr>';
+
+    }
+
+    // finish table and return it
+
+    $html .= '</table>';
+
+    return $html;
+
+}
+
+$people = array(
 		array("Name" => "September",	"Surname" => "Parker"),
 		array("Name" => "Serina",		"Surname" => "Wall"),
 		array("Name" => "Courtney",		"Surname" => "Buckley"),
@@ -106,29 +167,11 @@
 		array("Name" => "Lester",		"Surname" => "Buchanan")
 	);
 
+echo build_table($people);
+
 ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Homework // Week 1</title>
 
-		<!--
-			We're using Bootstrap to make styling stuff super easy.
-			Go read up here: http://getbootstrap.com/css/
-		-->
-		<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
-	</head>
-	<body>
-
-		<div class="container">
-
-			<h1>A List of People</h1>
-			<hr>
-
-			<!-- #ToDo -->
-
-			<p>Oops, there's nothing here yet! Please check the source code.</p>
+			<!-- <p>Oops, there's nothing here yet! Please check the source code.</p>-->
 
 		</div>
 
